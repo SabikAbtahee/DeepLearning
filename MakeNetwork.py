@@ -22,7 +22,7 @@ def makeModel():
 
     classifier.add(Dense(units= 64,activation='relu'))
     classifier.add(Dropout(rate=0.1))
-    classifier.add(Dense(units=82,activation='softmax'))
+    classifier.add(Dense(units=51,activation='softmax'))
     classifier.add(Dropout(rate=0.1))
     classifier.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])       # try rmsprop
     return classifier
@@ -33,7 +33,7 @@ from PIL import Image
 def trainTest(classifier):
     trainPath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\TrainTestImages\\Train'
     testPath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\TrainTestImages\\Test'
-    savePath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\Model2.h5'
+    savePath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\MainModel1.h5'
 
     train_datagen = ImageDataGenerator(
         rescale=1. / 255,
@@ -57,10 +57,10 @@ def trainTest(classifier):
 
     classifier.fit_generator(
         train_generator,
-        steps_per_epoch=8000,
-        epochs=5,
+        steps_per_epoch=150000,
+        epochs=4,
         validation_data=validation_generator,
-        validation_steps=2000)
+        validation_steps=50000)
 
     classifier.summary()
 
