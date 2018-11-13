@@ -1,7 +1,7 @@
 from keras.models import load_model
 # from Code.ConnectedLabelling import *
-modelPath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\MainModel1.h5'
-imagepath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\TrainTestImages\\Train\\'
+modelPath='C:/Users/sabik/PycharmProjects/DeepLearningBasics/MainModel1.h5'
+imagepath='C:/Users/sabik/PycharmProjects/DeepLearningBasics/TrainTestImages/Train/'
 # filename= imagepath + '4\\4 (5).jpg'
 #
 # classifier = load_model(modelPath)
