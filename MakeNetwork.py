@@ -24,7 +24,7 @@ def makeModel():
 
     classifier.add(Dense(units= 64,activation='relu'))
     classifier.add(Dropout(rate=0.1))
-    classifier.add(Dense(units=27,activation='softmax'))
+    classifier.add(Dense(units=24,activation='softmax'))
     classifier.add(Dropout(rate=0.1))
     classifier.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])       # try rmsprop
     return classifier
@@ -66,7 +66,7 @@ from PIL import Image
 def trainTest(classifier):
     trainPath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\TrainTestImages\\Train'
     testPath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\TrainTestImages\\Test'
-    savePath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\test1.h5'
+    savePath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\test2.h5'
 
     # train_datagen = ImageDataGenerator(
     #     rescale=1. / 255,
@@ -90,23 +90,23 @@ def trainTest(classifier):
     train_generator = train_datagen.flow_from_directory(
         trainPath,
         target_size=(45, 45),
-        batch_size=64,
+        batch_size=16,
         class_mode='categorical')
 
     test_generator = test_datagen.flow_from_directory(
         testPath,
         target_size=(45, 45),
-        batch_size=64,
+        batch_size=16,
         class_mode='categorical')
 
     print(train_generator.class_indices)
     #
-    classifier.fit_generator(
-        train_generator,
-        steps_per_epoch=300,
-        epochs=5,
-        validation_data=test_generator,
-        validation_steps=50)
+    # classifier.fit_generator(
+    #     train_generator,
+    #     steps_per_epoch=75093/16,
+    #     epochs=5,
+    #     validation_data=test_generator,
+    #     validation_steps=18773/16)
 #
 #     # 269493 / 64
 #     # 67347 / 64
