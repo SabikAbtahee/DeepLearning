@@ -33,7 +33,7 @@ from PIL import Image
 def trainTest(classifier):
     trainPath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\TrainTestImages\\Train'
     testPath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\TrainTestImages\\Test'
-    savePath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\MainModel1.h5'
+    savePath='C:\\Users\\sabik\\PycharmProjects\\DeepLearningBasics\\MainModel2.h5'
 
     train_datagen = ImageDataGenerator(
         rescale=1. / 255,
@@ -46,21 +46,21 @@ def trainTest(classifier):
     train_generator = train_datagen.flow_from_directory(
         trainPath,
         target_size=(45, 45),
-        batch_size=64,
+        batch_size=128,
         class_mode='categorical')
 
     validation_generator = test_datagen.flow_from_directory(
         testPath,
         target_size=(45, 45),
-        batch_size=64,
+        batch_size=128,
         class_mode='categorical')
 
     classifier.fit_generator(
         train_generator,
-        steps_per_epoch=150000,
-        epochs=4,
+        steps_per_epoch=269493/128,
+        epochs=8,
         validation_data=validation_generator,
-        validation_steps=50000)
+        validation_steps=67347/128)
 
     classifier.summary()
 
