@@ -2,7 +2,7 @@ from keras.models import load_model
 # from Code.ConnectedLabelling import *
 import os
 modelPath='C:/Users/sabik/PycharmProjects/DeepLearningBasics/test2.h5'
-imagepath='C:/Users/sabik/PycharmProjects/DeepLearningBasics/TrainTestImages/Train/fslashB/fs (16).png'
+
 
 
 classifier = load_model(modelPath)
@@ -16,7 +16,7 @@ count=0
 count=np.zeros((24,), dtype=int)
 labels=['+','-','0','1','2','3','4','5','6','7','8','9','a','b','c','/','m','n','p','q','r','*','x','y']
 
-
+imagepath='C:/Users/sabik/PycharmProjects/DeepLearningBasics/TrainTestImages/Train/fslashB/fs (45).png'
 filename = imagepath
 test_image = image.load_img(filename, target_size = (45, 45,3))
 test_image = image.img_to_array(test_image)
